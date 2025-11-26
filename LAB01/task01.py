@@ -10,32 +10,34 @@ def get_numbers_from_user():
     return num_in
 
 
-def find_min(num_min):
-    minimum = num_min[0]
-    for num in num_min[1:]:
+def find_min(numbers):
+    if not numbers:
+        raise ValueError("Список чисел пуст.")
+    minimum = numbers[0]
+    for num in numbers[1:]:
         if num < minimum:
             minimum = num
     return minimum
 
 
-def find_max(num_max):
-    maximum = num_max[0]
-    for num in num_max[1:]:
+def find_max(numbers):
+    if not numbers:
+        raise ValueError("Список чисел пуст.")
+    maximum = numbers[0]
+    for num in numbers[1:]:
         if num > maximum:
             maximum = num
     return maximum
 
-
 def sum_numbers(nums):
-    summ = 0
+    total = 0
     for num in nums:
-        summ += num
-    return summ
-
+        total += num
+    return total
 
 if __name__ == '__main__':
     numbers = get_numbers_from_user()
-    print(find_min(numbers))
-    print(find_max(numbers))
-    print(sum_numbers(numbers))#!/usr/env/python
+    print('Минимальное число:', find_min(numbers))
+    print('Максимальное число:', find_max(numbers))
+    print('Сумма всех чисел:', sum_numbers(numbers))
 
